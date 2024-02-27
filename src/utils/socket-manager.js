@@ -31,11 +31,12 @@ class SocketManager {
             socket.on('disconnect', (reason) => {
                 console.log('user disconnected::', reason);
             });
-
-            io.on('error', (error) => {
+        });
+        
+        io.on('error', (error) => {
                 console.error('Socket.IO Error:', error);
-            });
-        })
+        });
+        
         // attach to app instance
         app.use((req, res, next) => {
             req.io = io;
